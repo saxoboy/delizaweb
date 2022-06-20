@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const SocialLinks = () => {
   return (
-    <ul className="flex flex-row items-center justify-center mt-4 space-x-4">
+    <ul className="flex flex-row items-center justify-center mt-4 space-x-8 text-3xl">
       <li>
         <Link href="https://www.facebook.com/delizacakeart">
           <a className="social-links" target="_blank">
