@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="container relative mx-auto text-white">
-        <div className="flex items-center justify-center pb-24 mx-auto">
+        <div className="flex items-center justify-center px-4 pb-24 mx-auto">
           <Image
             src="/img/Deliza-cake-art-logo.png"
             alt="Deliza Web"
@@ -26,14 +26,18 @@ const Home: NextPage = () => {
             className="text-center"
           />
         </div>
-        <h1 className="pb-8 text-center text-9xl">Deliza Cake Art</h1>
-        <h2 className="pb-8 text-6xl text-center">
+        <h1 className="px-4 pb-8 text-5xl text-center lg:text-7xl font-body">
+          Deliza Cake Art
+        </h1>
+        <h2 className="px-4 pb-8 text-3xl text-center font-body">
           Pasteles de Crema y Fondant
         </h2>
-        <h3 className="pb-8 text-4xl text-center">Sitio en Construcción</h3>
+        <h3 className="px-4 pb-8 text-4xl text-center font-display">
+          Sitio en Construcción
+        </h3>
 
-        <div className="flex justify-center pb-8 text-3xl">
-          <div className="leading-tight">
+        <div className="flex justify-center px-4 pb-8 text-3xl font-body">
+          <div className="leading-tight text-center">
             Haz tu pedido o siguenos en nuestras redes sociales <SocialLinks />
           </div>
         </div>

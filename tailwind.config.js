@@ -5,6 +5,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      display: ["Rock Salt", "cursive"],
+      body: ["Raleway", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],

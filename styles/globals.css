@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 @layer components {
-    .btn-primary {
-      @apply px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
-    }
+  .itemMenuResponsive {
+    @apply block py-4 transition-colors duration-500 border-b border-solid cursor-pointer bg-slate-400 hover:bg-slate-300 border-b-slate-100;
   }
+  .itemMenuResponsiveLi {
+    @apply block py-4 transition-colors duration-500 border-b border-solid bg-slate-500 hover:bg-slate-300 border-b-slate-100;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 font-semibold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+}
