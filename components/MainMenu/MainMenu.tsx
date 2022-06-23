@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaAngleDoubleRight } from "react-icons/fa";
 import ResponsiveMenu from "./ResponsiveMenu";
+import SocialLinks from "../SocialLinks";
+import { navigationData } from "../../data/navigations";
 
 const MainMenu = () => {
   const [isMenuRespOpen, setIsMenuRespOpen] = useState(false);
@@ -10,7 +12,7 @@ const MainMenu = () => {
   return (
     <>
       <div
-        className={`absolute top-0 left-0 z-50 w-full h-screen bg-slate-200 ${
+        className={`absolute top-0 left-0 z-50 w-full h-screen bg-purple-200 ${
           isMenuRespOpen
             ? " translate-y-0 transition-transform duration-200 ease-in-out"
             : "-translate-y-full transition-all duration-200 ease-in-out"
@@ -23,9 +25,9 @@ const MainMenu = () => {
       </div>
 
       <nav className="bg-purple-200">
-        <div className="container mx-auto ">
-          <div className="relative flex items-center justify-between px-4 py-5 text-xl font-body">
-            <div className="flex items-center">
+        <div className="container mx-auto">
+          <div className="relative flex items-center justify-between px-4 text-xl md:block lg:flex font-body">
+            <div className="flex items-center py-4 md:justify-center">
               <Image
                 src="/img/Deliza-cake-art-logo.png"
                 alt="Deliza Cake Art"
@@ -39,40 +41,56 @@ const MainMenu = () => {
                 onClick={handleMenuOpen}
               />
             </div>
-            <ul className="hidden space-x-4 text-center md:flex">
-              <li>
-                <Link href="/">
-                  <a>Inicio</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/pasteles">
-                  <a>Pasteles</a>
-                </Link>
-                {/* <ul>
-                    <li>
-                      <Link href="/pasteles/">
-                        <a>Pasteles</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/pasteles/tortas">
-                        <a>Cupcakes</a>
-                      </Link>
-                    </li>
-                  </ul> */}
-              </li>
-              <li>
-                <Link href="/sobre-mi">
-                  <a>Sobre Mi</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contactos">
-                  <a>Contactos</a>
-                </Link>
-              </li>
-            </ul>
+            <nav className="menu">
+              <ul>
+                {navigationData.map((item) => (
+                  <li key={item.id}>
+                    <Link href={item.link}>
+                      <a>
+                        {item.nombre}
+                        {item.submenu && (
+                          <span className="float-right pt-1 pl-4">
+                            <FaAngleDoubleRight />
+                          </span>
+                        )}
+                      </a>
+                    </Link>
+                    {item.submenu && (
+                      <ul>
+                        {item.submenu.map((subitem) => (
+                          <li key={subitem.id}>
+                            <Link href={subitem.subLink}>
+                              <a>
+                                {subitem.subName}
+                                {subitem.submenu && (
+                                  <span className="float-right pt-1 pl-4">
+                                    <FaAngleDoubleRight />
+                                  </span>
+                                )}
+                              </a>
+                            </Link>
+                            {subitem.submenu && (
+                              <ul>
+                                {subitem.submenu.map((subsubitem) => (
+                                  <li key={subsubitem.id}>
+                                    <Link href={subsubitem.subLink}>
+                                      <a>{subsubitem.subName}</a>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="hidden lg:block">
+              <SocialLinks />
+            </div>
           </div>
         </div>
       </nav>

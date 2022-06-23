@@ -3,11 +3,60 @@
 @tailwind utilities;
 
 @layer components {
-  .itemMenuResponsive {
-    @apply block py-4 transition-colors duration-500 border-b border-solid cursor-pointer bg-slate-400 hover:bg-slate-300 border-b-slate-100;
+  .menu {
+    @apply hidden md:block;
   }
-  .itemMenuResponsiveLi {
-    @apply block py-4 transition-colors duration-500 border-b border-solid bg-slate-500 hover:bg-slate-300 border-b-slate-100;
+  .menu ul {
+    @apply relative md:flex;
+  }
+  .menu ul li {
+    @apply relative text-center;
+  }
+  .menu ul li a {
+    @apply block px-4 transition-all duration-200 ease-in-out md:px-3 lg:px-2 xl:px-4 py-7 md:py-4 lg:py-7;
+  }
+  .menu ul li a:hover {
+    @apply bg-purple-300;
+  }
+  .menu ul li ul {
+    @apply absolute left-0 z-10 hidden w-48 h-full shadow-lg rounded-b-2xl;
+  }
+  .menu ul li:hover > ul {
+    @apply block h-auto;
+  }
+  .menu ul li ul li {
+    @apply relative m-0 text-left bg-purple-200;
+  }
+  .menu ul li ul li:last-child {
+    @apply rounded-b-2xl;
+  }
+  .menu ul li ul li a {
+    @apply p-4;
+  }
+  .menu ul li ul li ul {
+    @apply top-0 left-48;
+  }
+  .menu ul li ul li ul li:last-child {
+    @apply rounded-bl-none rounded-br-2xl;
+  }
+  .menu ul li ul li:last-child a:hover {
+    @apply rounded-bl-none rounded-br-2xl;
+  }
+  /* MENU RESPONSIVE */
+  .menuResponsive ul {
+    @apply relative flex-col overflow-x-hidden overflow-y-auto text-3xl text-center text-white w-80 sm:w-96 font-body;
+  }
+  .menuResponsive ul > li {
+    @apply z-0 transition-colors duration-500 bg-purple-300 border-b border-solid cursor-pointer hover:bg-purple-400 border-b-slate-100;
+  }
+  .menuResponsive ul li a {
+    @apply relative flex justify-center py-4;
+  }
+  .menuResponsive ul li ul {
+    @apply absolute top-0 z-10 w-full h-full transition-transform duration-300 ease-in-out;
+  }
+  .menuResponsive ul li ul li.titleSubmenu {
+    @apply block bg-purple-500 cursor-text;
   }
 
   .btn-primary {
