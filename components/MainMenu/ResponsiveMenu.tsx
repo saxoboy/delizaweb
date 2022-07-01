@@ -13,14 +13,28 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isLiSelect, setIsLiSelect] = useState(false);
   const [isLiSelectUl, setIsLiSelectUl] = useState(false);
-  const handleMenuOpen = () => setIsMenuRespOpen(!isMenuRespOpen);
+  const [selectedMenu, setSelectedMenu] = useState(0);
+  const [selectedMenuTwo, setSelectedMenuTwo] = useState(0);
+
+  const handleMenuClose = () => {
+    setSelectedMenu(0);
+    setSelectedMenuTwo(0);
+  };
+  const handleMenuOpen = () => {
+    setIsMenuRespOpen(!isMenuRespOpen);
+    setIsLiSelect(false);
+    setIsLiSelectUl(false);
+    handleMenuClose();
+  };
   const handleLiSelect = () => {
     setIsLiSelect(!isLiSelect);
     setIsLiSelectUl(false);
+    handleMenuClose();
   };
   const handleLiSelectUl = () => {
     setIsLiSelect(true);
     setIsLiSelectUl(!isLiSelectUl);
+    handleMenuClose();
   };
 
   const backMenu = (
@@ -59,17 +73,8 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
-  useEffect(() => {
-    if (typeof window === "object") {
-      const navExpand = [].slice.call(document.querySelectorAll(".nav-expand"));
-      navExpand.forEach((item) => {
-        console.log(item);
-      });
-    }
-  }, []);
-
   return (
-    <div className="relative flex items-center justify-center h-full align-middle">
+    <div className="relative flex items-center justify-center h-full ">
       <div className="container absolute top-0 right-0 z-20 flex justify-end p-8">
         <FaTimes
           className="text-3xl text-right text-purple-700 cursor-pointer"
@@ -88,16 +93,18 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
         <div className="relative flex justify-center">
           <nav className="menuResponsive">
             <ul>
-              {navigationData.map((item) => (
+              {navigationData.map((item, index) => (
                 <li
                   key={item.id}
-                  className={`${item.submenu ? "nav-expand" : ""}`}
-                  id={String(item.id)}
+                  onClick={() => setSelectedMenu(index + 1)}
+                  {...(item.submenu && selectedMenu === index + 1
+                    ? { className: "active" }
+                    : {})}
                 >
-                  <Link href={item.link}>
+                  {item.submenu ? (
                     <a
                       className="inline-flex"
-                      onClick={item.submenu ? handleLiSelect : () => {}}
+                      onClick={item.submenu && handleLiSelect}
                     >
                       {item.nombre}
                       {item.submenu && (
@@ -106,30 +113,45 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
                         </span>
                       )}
                     </a>
-                  </Link>
+                  ) : (
+                    <Link href={item.link}>
+                      <a
+                        className="inline-flex"
+                        onClick={item.submenu && handleLiSelect}
+                      >
+                        {item.nombre}
+                        {item.submenu && (
+                          <span className="pt-3 pl-4">
+                            <FaAngleDoubleRight className="text-base" />
+                          </span>
+                        )}
+                      </a>
+                    </Link>
+                  )}
+
                   {item.submenu && (
                     <ul
-                      id={String(item.id)}
+                      style={{
+                        display: selectedMenu === index + 1 ? "block" : "none",
+                      }}
                       className={`${
                         isLiSelect
-                          ? "block h-auto bg-purple-300 cursor-text translate-x-0 duration-200 ease-in-out"
+                          ? "h-auto bg-purple-300 cursor-text translate-x-0 duration-200 ease-in-out"
                           : "translate-x-full"
                       }`}
                     >
                       {isLiSelect && backMenu(item.nombre, handleLiSelect)}
-                      {item.submenu.map((subitem) => (
+                      {item.submenu.map((subitem, indexTwo) => (
                         <li
                           key={subitem.id}
-                          className={`${
-                            subitem.submenu ? "nav-expand-expand-content" : ""
-                          }`}
+                          onClick={() => setSelectedMenuTwo(indexTwo + 1)}
+                          {...(subitem.submenu &&
+                          selectedMenuTwo === indexTwo + 1
+                            ? { className: "active" }
+                            : {})}
                         >
-                          <Link href={subitem.subLink}>
-                            <a
-                              onClick={
-                                subitem.submenu ? handleLiSelectUl : () => {}
-                              }
-                            >
+                          {subitem.submenu ? (
+                            <a onClick={subitem.submenu && handleLiSelectUl}>
                               {subitem.subName}
                               {subitem.submenu && (
                                 <span className="float-right pt-3 pl-4">
@@ -137,13 +159,30 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
                                 </span>
                               )}
                             </a>
-                          </Link>
+                          ) : (
+                            <Link href={subitem.subLink}>
+                              <a onClick={subitem.submenu && handleLiSelectUl}>
+                                {subitem.subName}
+                                {subitem.submenu && (
+                                  <span className="float-right pt-3 pl-4">
+                                    <FaAngleDoubleRight className="text-base" />
+                                  </span>
+                                )}
+                              </a>
+                            </Link>
+                          )}
+
                           {subitem.submenu && (
                             <ul
-                              id={String(subitem.id)}
+                              style={{
+                                display:
+                                  selectedMenuTwo === indexTwo + 1
+                                    ? "block"
+                                    : "none",
+                              }}
                               className={`${
                                 isLiSelectUl
-                                  ? "block h-auto bg-purple-300 cursor-text"
+                                  ? "h-auto bg-purple-300 cursor-text"
                                   : "translate-x-full"
                               }`}
                             >
