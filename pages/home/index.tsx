@@ -4,7 +4,9 @@ import MainLayout from "../../components/Layout/MainLayout";
 const HomePage = () => {
   return (
     <MainLayout>
-      <h1 className="mt-56 ">Home Page</h1>
+      <div className="container mx-auto">
+        <h1 className="">Home Page</h1>
+      </div>
     </MainLayout>
   );
 };
