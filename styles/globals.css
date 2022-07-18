@@ -24,10 +24,14 @@
   .menu ul li:hover > ul {
     @apply block h-auto;
   }
-  .menu ul li ul li {
+  .menu ul li ul li,
+  .menu ul li ul li ul li {
     @apply relative m-0 text-left bg-purple-200;
   }
-  .menu ul li ul li:last-child {
+  .menu ul li ul li:last-child,
+  .menu ul li ul li ul li a:hover
+  .menu ul li ul li:last-child a:hover,
+  .menu ul li ul li ul li:last-child {
     @apply rounded-b-2xl;
   }
   .menu ul li ul li a {
@@ -36,12 +40,10 @@
   .menu ul li ul li ul {
     @apply top-0 left-48;
   }
-  .menu ul li ul li ul li:last-child {
-    @apply rounded-bl-none rounded-br-2xl;
+  .menu ul li ul li ul li:last-child a:hover:last-child {
+    @apply rounded-b-2xl;
   }
-  .menu ul li ul li:last-child a:hover {
-    @apply rounded-bl-none rounded-br-2xl;
-  }
+
   /* MENU RESPONSIVE */
   .menuResponsive ul {
     @apply relative flex-col overflow-x-hidden overflow-y-auto text-3xl text-center text-white w-80 sm:w-96 font-body;
