@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBars, FaAngleDoubleRight } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import {
+  MdOutlineKeyboardArrowDown,
+  MdOutlineKeyboardArrowRight,
+} from "react-icons/md";
 import ResponsiveMenu from "./ResponsiveMenu";
 import SocialLinks from "../SocialLinks";
 import { navigationData } from "../../data/navigations";
@@ -28,12 +32,16 @@ const MainMenu = () => {
         <div className="container mx-auto">
           <div className="relative flex items-center justify-between px-4 text-xl md:block lg:flex font-body">
             <div className="flex items-center py-4 md:justify-center">
-              <Image
-                src="/img/Deliza-cake-art-logo.png"
-                alt="Deliza Cake Art"
-                width={150}
-                height={55}
-              />
+              <Link href="/home">
+                <a>
+                  <Image
+                    src="/img/Deliza-cake-art-logo.png"
+                    alt="Deliza Cake Art"
+                    width={150}
+                    height={55}
+                  />
+                </a>
+              </Link>
             </div>
             <div className="px-4 md:hidden">
               <FaBars
@@ -50,7 +58,7 @@ const MainMenu = () => {
                         {item.nombre}
                         {item.submenu && (
                           <span className="float-right pt-1 pl-4">
-                            <FaAngleDoubleRight />
+                            <MdOutlineKeyboardArrowDown />
                           </span>
                         )}
                       </a>
@@ -64,7 +72,7 @@ const MainMenu = () => {
                                 {subitem.subName}
                                 {subitem.submenu && (
                                   <span className="float-right pt-1 pl-4">
-                                    <FaAngleDoubleRight />
+                                    <MdOutlineKeyboardArrowRight />
                                   </span>
                                 )}
                               </a>

@@ -29,8 +29,7 @@
     @apply relative m-0 text-left bg-purple-200;
   }
   .menu ul li ul li:last-child,
-  .menu ul li ul li ul li a:hover
-  .menu ul li ul li:last-child a:hover,
+  .menu ul li ul li ul li a:hover .menu ul li ul li:last-child a:hover,
   .menu ul li ul li ul li:last-child {
     @apply rounded-b-2xl;
   }
@@ -59,6 +58,9 @@
   }
   .menuResponsive ul li ul li.titleSubmenu {
     @apply block bg-purple-500 cursor-text;
+  }
+  .social-links {
+    @apply inline-flex justify-center px-2 py-2 my-3 text-3xl text-white transition duration-200 ease-in-out transform rounded-full lg:text-xl xl:text-3xl hover:text-slate-600 hover:-translate-y-1 hover:scale-150 focus:outline-none;
   }
 
   .btn-primary {

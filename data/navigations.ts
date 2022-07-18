@@ -10,7 +10,6 @@ export interface SubNavigation {
   id: number;
   subName: string;
   subLink: string;
-  suBIcon?: string;
   slug: string;
   submenu?: SubNavigation[];
 }
@@ -27,36 +26,19 @@ export const navigationData: Navigations[] = [
       {
         id: 1,
         subName: "Pasteles",
-        subLink: "#",
-        suBIcon: "pasteles",
+        subLink: "/pasteles",
         slug: "pasteles",
         submenu: [
           {
             id: 1,
-            subName: "Pasteles Crema",
+            subName: "En Crema",
             subLink: "/pasteles/crema",
-            suBIcon: "crema",
             slug: "crema",
           },
           {
             id: 2,
-            subName: "Pasteles Fondant",
+            subName: "En Fondant",
             subLink: "/pasteles/fondant",
-            suBIcon: "fondant",
-            slug: "fondant",
-          },
-          {
-            id: 3,
-            subName: "Pasteles Tres",
-            subLink: "/pasteles/crema",
-            suBIcon: "crema",
-            slug: "crema",
-          },
-          {
-            id: 4,
-            subName: "Pasteles Cuatro",
-            subLink: "/pasteles/fondant",
-            suBIcon: "fondant",
             slug: "fondant",
           },
         ],
@@ -64,117 +46,29 @@ export const navigationData: Navigations[] = [
       {
         id: 2,
         subName: "Cupcakes",
-        subLink: "/productos/cupcakes",
-        suBIcon: "cupcakes",
+        subLink: "/cupcakes",
         slug: "cupcakes",
       },
       {
         id: 3,
+        subName: "Galletas",
+        subLink: "/galletas",
+        slug: "galletas",
+      },
+      {
+        id: 4,
         subName: "Otros",
-        subLink: "/productos/otros-productos",
-        suBIcon: "cupcakes",
-        slug: "otros-productos",
+        subLink: "/productos/otros",
+        slug: "otros",
       },
     ],
   },
   {
     id: 3,
     nombre: "Precios",
-    link: "#",
+    link: "/precios",
     icon: "precios",
     slug: "precios",
-    submenu: [
-      {
-        id: 1,
-        subName: "Precios 1",
-        subLink: "/precios",
-        suBIcon: "precios",
-        slug: "precios",
-        submenu: [
-          {
-            id: 1,
-            subName: "Precios 1 - 1",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-          {
-            id: 2,
-            subName: "Precios 1 - 2",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-          {
-            id: 3,
-            subName: "Precios 1 - 3",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-        ],
-      },
-      {
-        id: 2,
-        subName: "Precios 2",
-        subLink: "/precios",
-        suBIcon: "precios",
-        slug: "precios",
-        submenu: [
-          {
-            id: 1,
-            subName: "Precios 2 - 1",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-          {
-            id: 2,
-            subName: "Precios 2 - 2",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-          {
-            id: 3,
-            subName: "Precios 2 - 3",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-        ],
-      },
-      {
-        id: 3,
-        subName: "Precios 3",
-        subLink: "/precios",
-        suBIcon: "precios",
-        slug: "precios",
-        submenu: [
-          {
-            id: 1,
-            subName: "Precios 3 - 1",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-          {
-            id: 2,
-            subName: "Precios 3 - 2",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-          {
-            id: 3,
-            subName: "Precios 3 - 3",
-            subLink: "/precios",
-            suBIcon: "precios",
-            slug: "precios",
-          },
-        ],
-      },
-    ],
   },
   {
     id: 4,
@@ -185,24 +79,21 @@ export const navigationData: Navigations[] = [
     submenu: [
       {
         id: 1,
-        subName: "Galeria 1",
-        subLink: "/galeria/galeria-1",
-        suBIcon: "pasteles",
+        subName: "Pasteles",
+        subLink: "/galeria/pasteles",
         slug: "pasteles",
       },
       {
         id: 2,
-        subName: "Galeria 2",
-        subLink: "/galeria/galeria-2",
-        suBIcon: "cupcakes",
+        subName: "Cupcakes",
+        subLink: "/galeria/cupcakes",
         slug: "cupcakes",
       },
       {
         id: 3,
-        subName: "Galeria 3",
-        subLink: "/galeria/galeria-3",
-        suBIcon: "cupcakes",
-        slug: "otros-productos",
+        subName: "Galletas",
+        subLink: "/galeria/galletas",
+        slug: "galletas",
       },
     ],
   },
@@ -212,13 +103,6 @@ export const navigationData: Navigations[] = [
     link: "/sobre-mi",
     icon: "sobre-mi",
     slug: "sobre-mi",
-  },
-  {
-    id: 6,
-    nombre: "FAQ",
-    link: "/preguntas-frecuentes",
-    icon: "sobre-mi",
-    slug: "preguntas-frecuentes",
   },
   {
     id: 7,

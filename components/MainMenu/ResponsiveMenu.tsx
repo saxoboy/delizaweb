@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaAngleDoubleRight, FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
+import { FaAngleDoubleLeft, FaTimes } from "react-icons/fa";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import SocialLinks from "../SocialLinks";
 import { navigationData } from "../../data/navigations";
 interface Props {
@@ -109,7 +110,7 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
                       {item.nombre}
                       {item.submenu && (
                         <span className="pt-3 pl-4">
-                          <FaAngleDoubleRight className="text-base" />
+                          <MdOutlineKeyboardArrowRight className="text-base" />
                         </span>
                       )}
                     </a>
@@ -122,7 +123,7 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
                         {item.nombre}
                         {item.submenu && (
                           <span className="pt-3 pl-4">
-                            <FaAngleDoubleRight className="text-base" />
+                            <MdOutlineKeyboardArrowRight className="text-base" />
                           </span>
                         )}
                       </a>
@@ -155,7 +156,7 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
                               {subitem.subName}
                               {subitem.submenu && (
                                 <span className="float-right pt-3 pl-4">
-                                  <FaAngleDoubleRight className="text-base" />
+                                  <MdOutlineKeyboardArrowRight className="text-base" />
                                 </span>
                               )}
                             </a>
@@ -165,7 +166,7 @@ const ResponsiveMenu = ({ isMenuRespOpen, setIsMenuRespOpen }: Props) => {
                                 {subitem.subName}
                                 {subitem.submenu && (
                                   <span className="float-right pt-3 pl-4">
-                                    <FaAngleDoubleRight className="text-base" />
+                                    <MdOutlineKeyboardArrowRight className="text-base" />
                                   </span>
                                 )}
                               </a>
