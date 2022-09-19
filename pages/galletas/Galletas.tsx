@@ -5,14 +5,10 @@ import Container from "@/components/ui/Container";
 
 const GalletasPage = () => {
   return (
-    <MainLayout>
-      <Head>
-        <title>Galletas - Deliza Cake Art</title>
-        <meta
-          name="description"
-          content="Los mejores Galletas tematicas para todos los gustos"
-        />
-      </Head>
+    <MainLayout
+      title="Galletas - Deliza Cake Art"
+      pageDescription="Los mejores Galletas tematicas para todos los gustos"
+    >
       <Breadcrumb
         title="Galletas"
         subtitle="Los mejores Galletas tematicos para todos los gustos"

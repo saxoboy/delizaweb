@@ -3,7 +3,10 @@ import Container from "../../components/ui/Container";
 
 const HomePage = () => {
   return (
-    <MainLayout>
+    <MainLayout
+      title={"Deliza Cake Art"}
+      pageDescription={"Pasteles de Fondant"}
+    >
       <Container>
         <h1>Home Page</h1>
         <div className="h-96"></div>
