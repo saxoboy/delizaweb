@@ -30,7 +30,7 @@ const Breadcrumb = ({
           alt={imageAlt}
           layout="fill"
           objectFit="cover"
-          objectPosition="center"
+          objectPosition="right"
           priority
           className="absolute h-80"
         />
