@@ -36,6 +36,8 @@ const PastelesPage: NextPage = () => {
                 layout="responsive"
                 width={577}
                 height={443}
+                priority={true}
+                loading="eager"
               />
             </div>
             <div className="">

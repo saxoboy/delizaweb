@@ -19,7 +19,6 @@ const CategoryNamePage: NextPage<Props> = ({ category }) => {
     "/pasteles/categoria/"
   );
   const { asPath, query } = useRouter();
-  console.log(query);
 
   return (
     <MainLayout
@@ -98,8 +97,6 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug = "" } = params as { slug: string };
   const category = await dbCategories.getCategoryBySlug(slug);
-
-  console.log({ category });
 
   if (!category) {
     return {

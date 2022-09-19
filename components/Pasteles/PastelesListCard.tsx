@@ -6,7 +6,6 @@ interface PastelesListCardProps {
 }
 
 const PastelesListCard: FC<PastelesListCardProps> = ({ pasteles }) => {
-  console.log({ pasteles });
   return (
     <Container>
       <h2>{pasteles}</h2>
