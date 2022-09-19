@@ -9,7 +9,6 @@ import Document, {
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const originalRenderPage = ctx.renderPage;
-
     // Run the React rendering logic synchronously
     ctx.renderPage = () =>
       originalRenderPage({
@@ -21,7 +20,6 @@ class MyDocument extends Document {
 
     // Run the parent `getInitialProps`, it now includes the custom `renderPage`
     const initialProps = await Document.getInitialProps(ctx);
-
     return initialProps;
   }
 
@@ -40,7 +38,23 @@ class MyDocument extends Document {
           href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,400;1,700&family=Rock+Salt&display=swap"
           rel="stylesheet"
         />
-        <body className="box-content relative antialiased">
+        <meta name="copyright" content="Deliza Cake Art" />
+        <meta name="language" content="ES" />
+        <meta name="robots" content="index,follow" />
+        <meta name="owner" content="Elizabeth Loyola" />
+        <meta
+          name="author"
+          content="Israel Herrera E., israelherrere@gmail.com"
+        />
+        <meta name="url" content={`${process.env.NEXT_PUBLIC_HOST_NAME}`} />
+        <meta
+          name="identifier-URL"
+          content={`${process.env.NEXT_PUBLIC_HOST_NAME}`}
+        />
+        <meta name="target" content="all" />
+        <meta property="og:type" content="restaurant" />
+        <meta property="og:locale" content="es_EC" />
+        <body className="box-content relative antialiased scroll-smooth">
           <Main />
           <NextScript />
         </body>
